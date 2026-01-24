@@ -67,7 +67,7 @@ export default function Header() {
       </nav>
 
       <ul
-        className={`flex lg:hidden flex-col items-center justify-cente w-full h-100 mx-auto bg-white absolute top-15 transition-all duration-300 ease ${isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : " -translate-y-full pointer-events-none"}`}>
+        className={`flex lg:hidden flex-col items-center justify-cente w-full h-100 mx-auto bg-white absolute top-15 transition-all duration-500 ease ${isOpen ? "opacity-100 translate-x-0 pointer-events-auto" : " -translate-x-full pointer-events-none"}`}>
         <Link href="#hero" className="navbar-links w-full h-full" onClick={closeMenu}>
           Inicío
         </Link>
