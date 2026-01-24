@@ -8,10 +8,10 @@ import Reload from "@/assets/icons/reload-icon.png";
 import Card from "@/ui/card";
 
 // Tipo de dados dos meus cards
-import { card } from '@/types/types';
+import { card } from "@/types/types";
+import Reveal from "@/ui/reveal";
 
 export default function Services() {
-
   const cards: card[] = [
     {
       id: 1,
@@ -44,28 +44,36 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="w-full h-screen max-h-(--max-height)">
-      <div className="mx-auto flex flex-col gap-8 pt-8 items-center justify-center  w-[85%] max-w-[1366px] h-full">
-        <div className="w-138 flex flex-col items-center space-y-3">
-          <h1 className="text-(--color-title) text-4xl font-semibold">Serviços</h1>
-          <p className="text-center text-[20px]">
-            Soluções emergentes adaptadas ao seu negócio, com foco em eficiência
-            e inovação.
-          </p>
-        </div>
+    <section
+      id="services"
+      className="w-full h-full lg:h-screen lg:max-h-(--max-height) flex items-center justify-center lg:pt-10">
+      <div className="mx-auto flex flex-col gap-6 items-center justify-center w-[90%] sm:w-[85%] max-w-[1366px] h-ful py-20">
+        <Reveal className="">
+          <div className="w-80 lg:w-138 flex flex-col items-center space-y-3">
+            <h1 className="text-(--color-title) text-2xl lg:text-4xl font-semibold">
+              Serviços
+            </h1>
+            <p className="text-center lg:text-[20px]">
+              Soluções emergentes adaptadas ao seu negócio, com foco em
+              eficiência e inovação.
+            </p>
+          </div>
+        </Reveal>
 
-        <div className=" h-[60%] py-10 flex items-center justify-around gap-6 transition-all duration-500 ease-in-out">
-          {cards.map((card) => (
-            <Card
-              imageUrl={card.imageUrl}
-              alt={card.alt}
-              key={card.id}
-              title={card.title}
-              text={card.text}
-              button={false}
-            />
-          ))}
-        </div>
+        <Reveal>
+          <div className="w-full h-full lg:h-[60%] py-10 grid grid-cols-1 place-items-center sm:grid-cols-2 lg:flex lg:flex-row lg:items-center lg:justify-around gap-6">
+            {cards.map((card) => (
+              <Card
+                imageUrl={card.imageUrl}
+                alt={card.alt}
+                key={card.id}
+                title={card.title}
+                text={card.text}
+                button={false}
+              />
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

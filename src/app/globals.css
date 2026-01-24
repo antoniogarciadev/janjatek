@@ -10,15 +10,10 @@ html {
   --foreground: #171717;
   --max-height: 800px;
 }
-/* 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
+
 @layer components {
   .navbar-links {
-    @apply px-3 py-1 rounded-sm hover:scale-105 hover:text-(--color-purple) hover:bg-[#f6fcff];
+    @apply flex items-center justify-center px-3 py-1 rounded-sm hover:scale-105 hover:text-violet-500 hover:bg-[#f6fcff] transition-all duration-300;
   }
 
   .social-icon {
@@ -67,37 +62,20 @@ body {
   align-items: center;
 }
 
-.carrousel-cotainer::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel {
-  animation: move 100s infinite linear;
-  padding-left: 1em;
-}
-
-@keyframes move {
-  0 {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-150%);
-  }
-}
 
 .ani-move-up {
-  animation: floating 5s infinite linear;
+  animation: floating 5s infinite linear ;
 }
 
 @keyframes floating {
   0% {
-    transform: translateY(0px);
+    transform: translateY(10px);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-30px);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(10px);
   }
 }
 
@@ -123,19 +101,19 @@ body {
 
 @keyframes move-around {
   0% {
-    transform: translateX(0);
+    transform: translateX(10px);
   }
   50% {
     transform: translateX(-10px);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(10px);
   }
 }
 
 .ani-appear {
   visibility: hidden;
-  animation: appear linear 5s;
+  animation: appear linear 4.5s;
 }
 
 @keyframes appear {

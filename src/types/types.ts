@@ -19,6 +19,8 @@ export interface Cards {
   icon: LucideIcon;
   title: string;
   text: string;
+  index?: number;
+  className?: string;
 }
 
 export interface button {

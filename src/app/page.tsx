@@ -10,7 +10,7 @@ import Intro from "@/ui/intro";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-0 items-center justify-center mx-auto">
+    <main className="container text-sm sm:container max-w-[640px]:mx-auto">
       <Intro/>
       <Hero />
       <Times/>

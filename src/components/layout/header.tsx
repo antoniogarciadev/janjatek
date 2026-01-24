@@ -1,60 +1,95 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/assets/image/favicon.png";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const OpenMenu = (): void => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = (): void => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <header className="bg-white w-full h-20 fixed top-0 z-50 shadow-md">
-      <nav className="flex h-full items-center justify-between w-[85%] max-w-[1366px] py-4 mx-auto">
+    <header className="bg-white w-full h-15 lg:h-20 fixed top-0 z-50 shadow-md flex items-center justify-center">
+      <nav className="flex h-full w-[90%] sm:w-[85%] items-center justify-between py-4 lg:mx-auto gap-2 relative z-50 bg-white">
         <Link href="#hero">
           <Image
             src={Logo}
             alt="logo"
-            width={80}
-            height={80}
+            width={70}
+            height={70}
             quality={100}
             priority
           />
         </Link>
 
-        <ul className="flex gap-8">
-          <Link
-            href="#"
-            className="navbar-links">
+        <ul
+          className={`flex items-center justify-between h-full gap-6 max-[1024px]:hidden `}>
+          <Link href="#" className="navbar-links">
             Inicío
           </Link>
-          <Link
-            href="#services"
-            className="navbar-links">
+          <Link href="#services" className="navbar-links">
             Services
           </Link>
-          <Link
-            href="#products"
-            className="navbar-links">
+          <Link href="#products" className="navbar-links">
             Produtos
           </Link>
-          <Link
-            href="#clients"
-            className="navbar-links">
+          <Link href="#clients" className="navbar-links">
             Clientes
           </Link>
-          <Link
-            href="#parthers"
-            className="navbar-links">
+          <Link href="#parthers" className="navbar-links">
             Parceiros
           </Link>
-          <Link
-            href="#vision"
-            className="navbar-links">
+          <Link href="#vision" className="navbar-links">
             Visão
           </Link>
-          <Link
-            href="#contacts"
-            className="navbar-links">
+          <Link href="#contacts" className="navbar-links">
             Contato
           </Link>
         </ul>
+
+        {isOpen? (
+          <div className="lg:hidden">
+            <X className="cursor-pointer text-red-500" onClick={OpenMenu} />
+        </div>):
+         (<div className="lg:hidden">
+            <Menu className="cursor-pointer" onClick={OpenMenu} />
+        </div>)
+        }
       </nav>
+
+      <ul
+        className={`flex lg:hidden flex-col items-center justify-cente w-full h-100 mx-auto bg-white absolute top-15 transition-all duration-300 ease ${isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : " -translate-y-full pointer-events-none"}`}>
+        <Link href="#hero" className="navbar-links w-full h-full" onClick={closeMenu}>
+          Inicío
+        </Link>
+        <Link href="#services" className="navbar-links w-full h-full" onClick={closeMenu}>
+          Services
+        </Link>
+        <Link href="#products" className="navbar-links w-full h-full" onClick={closeMenu}>
+          Produtos
+        </Link>
+        <Link href="#clients" className="navbar-links w-full h-full" onClick={closeMenu}>
+          Clientes
+        </Link>
+        <Link href="#parthers" className="navbar-links w-full h-full" onClick={closeMenu}>
+          Parceiros
+        </Link>
+        <Link href="#vision" className="navbar-links w-full h-full" onClick={closeMenu}>
+          Visão
+        </Link>
+        <Link href="#contacts" className="navbar-links w-full h-full" onClick={closeMenu}>
+          Contato
+        </Link>
+      </ul>
     </header>
   );
 }
