@@ -43,10 +43,8 @@ export default function Products() {
   ];
 
   return (
-    <section
-      id="products"
-      className="w-full lg:max-h-(--max-height) flex items-center justify-center lg:pt-10">
-      <div className="mx-auto flex flex-col gap-6  items-center justify-center w-[90%] sm:w-[85%] lg:max-w-[1366px] h-full py-20">
+    <section id="products">
+      <div className="container h-full lg:max-h-(--max-height) mx-auto flex items-center justify-center lg:pt-10 flex-col gap-6 py-20">
         <Reveal>
           <div className="w-80 lg:w-138 flex flex-col items-center space-y-3">
             <h1 className="text-(--color-title) text-2xl lg:text-4xl font-semibold">
@@ -59,7 +57,7 @@ export default function Products() {
         </Reveal>
 
         <Reveal>
-          <div className="w-full h-full lg:h-[60%] py-10 grid grid-cols-1 place-items-center sm:grid-cols-2 lg:flex lg:flex-row lg:items-center lg:justify-around gap-6">
+          <div className="w-[90%] h-full lg:h-[60%] mx-auto py-10 grid grid-cols-1 place-items-center sm:grid-cols-2 lg:flex lg:flex-row lg:items-center lg:justify-around gap-6">
             {cards.map((card) => (
               <Card
                 imageUrl={card.imageUrl}

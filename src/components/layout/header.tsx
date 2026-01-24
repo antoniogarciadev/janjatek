@@ -18,8 +18,8 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white w-full h-15 lg:h-20 fixed top-0 z-50 shadow-md flex items-center justify-center">
-      <nav className="flex h-full w-[90%] sm:w-[85%] items-center justify-between py-4 lg:mx-auto gap-2 relative z-50 bg-white">
+    <header className="bg-white w-screen h-15 lg:h-20 fixed top-0 z-50 shadow-md">
+      <nav className="container mx-auto flex h-full items-center justify-between py-4 px-4 lg:px-20 relative z-50 bg-white">
         <Link href="#hero">
           <Image
             src={Logo}

@@ -45,8 +45,8 @@ export default function Contact() {
   ];
 
   return (
-    <section className="w-full h-180 lg:h-screen lg:max-h-(--max-height)" id="contacts">
-      <div className="mx-auto flex flex-col gap-8 items-center justify-center w-9/10  lg:w-[85%] lg:max-w-[1366px] h-full">
+    <section id="contacts">
+      <div className="container h-180 lg:max-h-(--max-height) mx-auto flex flex-col gap-8 items-center justify-center">
 
         <Reveal>
           <div className="w-full lg:w-138 flex flex-col items-center space-y-3">

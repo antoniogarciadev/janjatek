@@ -10,7 +10,7 @@ import Intro from "@/ui/intro";
 
 export default function Home() {
   return (
-    <main className="container text-sm sm:container max-w-[640px]:mx-auto">
+    <div>
       <Intro/>
       <Hero />
       <Times/>
@@ -20,6 +20,6 @@ export default function Home() {
       <Partners/>
       <Vision/>
       <Contact/>
-    </main>
+    </div>
   );
 }

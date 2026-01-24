@@ -19,9 +19,9 @@ const time = { count: 24, day: 7, text: "Suporte 24/7" } as const;
 
 export default function Times() {
   return (
-    <section className="w-full h-100 lg:h-[300px] flex items-center justify-center">
-        <div className="flex w-[90%] flex-col lg:flex-row items-center justify-around gap-4 ">
-      <Reveal className="flex w-full flex-col lg:flex-row items-center justify-around gap-4 ">
+    <section>
+      <div className="container h-100 lg:h-[300px] flex items-center  flex-col lg:flex-row justify-around gap-4 mx-auto">
+        <Reveal className="flex w-full flex-col lg:flex-row items-center justify-around gap-4 ">
           {numb.map((box: box) => (
             <Numbers
               id={box.id}
@@ -32,8 +32,8 @@ export default function Times() {
           ))}
 
           <Weekdays count={time.count} day={time.day} text={time.text} />
-      </Reveal>
-        </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

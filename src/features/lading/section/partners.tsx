@@ -82,7 +82,7 @@ export default function Partners() {
   }
 
   return (
-    <section className="container h-130 py-16">
+    <section className="container h-130 py-16 mx-auto">
       <div className="mx-auto px-4 space-y-10">
         <Reveal>
           <div className="flex flex-col items-center space-y-3">

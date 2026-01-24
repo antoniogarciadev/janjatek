@@ -9,10 +9,10 @@ import Reveal from "@/ui/reveal";
 export default function Vision() {
   return (
     <section
-      className="relative w-full min-[1380px]:w-screen h-120 lg:h-screen lg:max-h-(--max-height) bg-blue-500"
+      className="relative h-120 lg:h-screen lg:max-h-(--max-height) bg-blue-500"
       id="vision">
 
-      <div className=" relative z-10 w-[95%] h-full mx-auto flex items-center justify-center">
+      <div className="container relative z-10 w-[95%] h-full mx-auto flex items-center justify-center">
         <Reveal>
           <div className="w-full flex flex-col items-center space-y-8">
             <h1 className="text-white text-2xl lg:text-4xl font-semibold">

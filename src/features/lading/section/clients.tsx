@@ -139,3 +139,154 @@ export default function Clients() {
     </section>
   );
 }
+
+
+
+
+
+// "use client";
+
+// import { useRef } from "react";
+// import useEmblaCarousel from "embla-carousel-react";
+// import Autoplay from "embla-carousel-autoplay";
+
+// import { ChevronLeft, ChevronRight, Scissors, Clock, WheatOff } from "lucide-react";
+
+// const services = [
+//   {
+//     title: "Banho & Tosa",
+//     description:
+//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
+//     duration: "1h",
+//     price: "$50",
+//     icon: <Scissors />,
+//   },
+//   {
+//     title: "Banho & Tosa",
+//     description:
+//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
+//     duration: "1h",
+//     price: "$50",
+//     icon: <Scissors />,
+//   },
+//   {
+//     title: "Banho & Tosa",
+//     description:
+//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
+//     duration: "1h",
+//     price: "$50",
+//     icon: <Scissors />,
+//   },
+//   {
+//     title: "Banho & Tosa",
+//     description:
+//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
+//     duration: "1h",
+//     price: "$50",
+//     icon: <Scissors />,
+//   },
+//   {
+//     title: "Banho & Tosa",
+//     description:
+//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
+//     duration: "1h",
+//     price: "$50",
+//     icon: <Scissors />,
+//   },
+//   // restantes...
+// ];
+
+// export default function Services() {
+//   // 🔥 plugin autoplay
+//   const autoplay = useRef(
+//     Autoplay({
+//       delay: 5000, // ⏱️ 5s
+//       stopOnInteraction: false, // continua após clique
+//       stopOnMouseEnter: true, // pausa no hover
+//     }),
+//   );
+
+//   const [emblaRef, emblaApi] = useEmblaCarousel(
+//     {
+//       loop: false,
+//       align: "start",
+//       containScroll: "trimSnaps",
+//       slidesToScroll: 1, // sempre 1 por vez (autoplay suave)
+//       breakpoints: {
+//         "(min-width: 640px)": { slidesToScroll: 2 },
+//         "(min-width: 1024px)": { slidesToScroll: 4 },
+//       },
+//     },
+//     [autoplay.current],
+//   );
+
+//   function scrollPrev() {
+//     emblaApi?.scrollPrev();
+//   }
+
+//   function scrollNext() {
+//     emblaApi?.scrollNext();
+//   }
+
+//   return (
+//     <section className="bg-white py-16">
+//       <div className="container mx-auto px-4">
+//         <h2 className="text-4xl font-bold mb-12">Serviços</h2>
+
+//         <div className="relative">
+//           {/* VIEWPORT */}
+//           <div className="overflow-hidden" ref={emblaRef}>
+//             {/* TRACK */}
+//             <div className="flex">
+//               {services.map((item, index) => (
+//                 <div
+//                   key={index}
+//                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_calc(100%/4)] px-3">
+//                   <article className="bg-[#1e293b] text-white rounded-2xl p-6 space-y-4 h-full flex flex-col">
+//                     <div className="flex gap-3">
+//                       <span className="text-3xl">{item.icon}</span>
+
+//                       <div>
+//                         <h3 className="font-bold text-xl my-1">{item.title}</h3>
+
+//                         <p className="text-gray-400 text-sm">
+//                           {item.description}
+//                         </p>
+//                       </div>
+//                     </div>
+
+//                     <div className="border-t border-gray-400 flex items-center justify-between pt-4">
+//                       <div className="flex items-center gap-2 text-sm">
+//                         <Clock className="w-4 h-4" />
+//                         <span>{item.duration}</span>
+//                       </div>
+
+//                       <a className="flex items-center gap-2 hover:bg-red-500 rounded-md px-3 py-1 duration-300">
+//                         <WheatOff className="w-5 h-5" />
+//                         Contato
+//                       </a>
+//                     </div>
+//                   </article>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* BOTÕES */}
+//           <button
+//             onClick={scrollPrev}
+//             className="bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute left-0 -translate-y-1/2 top-1/2 z-10">
+//             <ChevronLeft className="w-6 h-6 text-gray-600" />
+//           </button>
+
+//           <button
+//             onClick={scrollNext}
+//             className="bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute right-0 -translate-y-1/2 top-1/2 z-10">
+//             <ChevronRight className="w-6 h-6 text-gray-600" />
+//           </button>
+//         </div>
+//       </div>
+//     </section>
+
+//   );
+// }
