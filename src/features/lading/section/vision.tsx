@@ -11,13 +11,15 @@ export default function Vision() {
     <section
       className="relative h-120 lg:h-screen lg:max-h-(--max-height) bg-blue-500"
       id="vision">
+
+        
       <div className="container relative z-10 w-[95%] h-full mx-auto flex items-center justify-center">
         <Reveal>
           <div className="w-full flex flex-col items-center space-y-8">
             <h1 className="text-white text-2xl lg:text-4xl font-semibold">
               Visão do Futuro
             </h1>
-            <p className=" text-white text-center text-sm lg:text-[18px] tracking-wider md:w-2/4 text-pretty">
+            <p className=" text-white text-center text-sm lg:text-[18px] tracking-wider md:w-[90%] lg:w-[70%]  text-pretty">
               Na Janjatek, imaginamos um futuro onde a tecnologia transcende
               limites, integrando inteligência artificial, automação avançada e
               segurança digital em uma experiência imersiva e interativa.

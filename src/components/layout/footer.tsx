@@ -5,7 +5,7 @@ import Logotipo from "@/assets/image/logo-janjatek.png";
 
 export default function Footer() {
   return (
-    <footer className="w-full h-[94vh] flex flex-col  bg-(--header-footer) items-center text-sm lg:text-[16px] justify-center">
+    <footer className="w-full h-[94vh] xl:h-screen flex flex-col  bg-(--header-footer) items-center text-sm lg:text-[16px] justify-center">
       <div className="group w-19/20 md:w-[85%] max-w-[1366px] h-full flex flex-col items-center justify-around gap-2">
         <div className="w-full h-[80%] flex flex-col lg:flex-row items-start lg:items-center justify-evenly lg:justify-between gap-2">
           <div className="space-y-3 mb-2">

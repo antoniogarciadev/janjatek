@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Janjatek
 
-First, run the development server:
+Sobre a Janjatek
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A Janjatek é uma empresa de tecnologia especializada em criar soluções digitais inteligentes que impulsionam o crescimento dos negócios.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Desenvolvemos softwares personalizados, fortalecemos a segurança digital, implementamos automação avançada e transformamos dados em decisões estratégicas.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Acreditamos que a tecnologia deve simplificar operações, aumentar a eficiência e gerar resultados reais.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Não criamos apenas sistemas.
+Criamos vantagem competitiva.
 
-## Learn More
+### O site pode ser acessado por meio dos seguites links
 
-To learn more about Next.js, take a look at the following resources:
+#### Template vercel - [https://janjatek.vercel.app/](https://janjatek.vercel.app/)
+#### Site original - [https://janjatek.com/](https://janjatek.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Autor:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+António Ch. Garcia - N3lh0 [antoniogarciadev](https://github.com/antoniogarciadev/)

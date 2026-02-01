@@ -51,6 +51,9 @@ export default function Header() {
           <Link href="#partners" className="navbar-links">
             Parceiros
           </Link>
+          <Link href="#about" className="navbar-links">
+            Sobre
+          </Link>
           <Link href="#vision" className="navbar-links">
             Visão
           </Link>
@@ -104,6 +107,12 @@ export default function Header() {
           className="navbar-links"
           onClick={closeMenu}>
           Parceiros
+        </Link>
+        <Link
+          href="#about"
+          className="navbar-links"
+          onClick={closeMenu}>
+          Sobre
         </Link>
         <Link
           href="#vision"
