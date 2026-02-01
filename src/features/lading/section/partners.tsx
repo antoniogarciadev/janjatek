@@ -23,54 +23,54 @@ export default function Partners() {
       title: "Ponto&Vírgula",
       text: "Estratégica",
       animation:
-        "group-hover:text-orange-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
-      style: "bg-orange-500",
-      color: "group-hover:text-orange-500"
+        "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-blue-500",
+      color: "group-hover:text-blue-500"
     },
     {
       icon: Earth,
       title: "Mwafrica",
       text: "Expansão",
       animation:
-        "group-hover:text-green-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
-      style: "bg-green-500",
-      color: "group-hover:text-green-500"
+        "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-blue-500",
+      color: "group-hover:text-blue-500"
     },
     {
       icon: Settings,
       title: "Control JP",
       text: "Controle",
       animation:
-        "group-hover:text-yellow-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
-      style: "bg-yellow-500",
-      color: "group-hover:text-yellow-500"
+        "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-blue-500",
+      color: "group-hover:text-blue-500"
     },
     {
       icon: Building2,
       title: "Gov. Namibe",
       text: "Institucional",
       animation:
-        "group-hover:text-orange-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
-      style: "bg-orange-500",
-      color: "group-hover:text-orange-500"
+        "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-blue-500",
+      color: "group-hover:text-blue-500"
     },
     {
       icon: Shield,
       title: "HakyOFF",
       text: "Segurança",
       animation:
-        "group-hover:text-green-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
-      style: "bg-green-500",
-      color: "group-hover:text-green-500"
+        "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-blue-500",
+      color: "group-hover:text-blue-500"
     },
     {
       icon: BadgeDollarSign,
       title: "Afrimoney",
       text: "Financeira",
       animation:
-        "group-hover:text-yellow-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
-      style: "bg-yellow-500",
-      color: "group-hover:text-yellow-500"
+        "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-blue-500",
+      color: "group-hover:text-blue-500"
 
     },
   ];
@@ -128,7 +128,7 @@ export default function Partners() {
                     <article
                       className={`rounded-2xl p-4 h-50 flex items-center text-white bg-(--cards) border-2 border-white/40 hover:border-(--primary) justify-center transition-all duration-500 hover:-translate-y-4 group shadow-lg hover:shadow-zinc-500/70`}>
                       <div className="w-full flex flex-col items-center justify-center space-y-3 mx-auto">
-                        <item.icon className={`text-(--primary) ${item.animation}`} />
+                        <item.icon className={`${item.animation}`} />
 
                         <div
                           className={`w-0 group-hover:w-2/4 h-0 group-hover:h-1 rounded-full transition-all duration-400 ease-in-out ${item.style}`}></div>

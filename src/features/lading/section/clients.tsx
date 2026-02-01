@@ -21,18 +21,18 @@ const clients: caroucelType[] = [
     title: "Bizness Lda.",
     text: "Soluções empresariais",
     animation:
-      "group-hover:text-red-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
-    style: "bg-red-500",
-    color: "group-hover:text-red-500",
+      "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+    style: "bg-blue-500",
+    color: "group-hover:text-blue-500",
   },
   {
     icon: HandCoins,
     title: "Banco Sol",
     text: "Financeira",
     animation:
-      "group-hover:text-yellow-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
-    style: "bg-yellow-500",
-    color: "group-hover:text-yellow-500",
+      "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
+    style: "bg-blue-500",
+    color: "group-hover:text-blue-500",
   },
   {
     icon: VanIcon,
@@ -49,9 +49,9 @@ const clients: caroucelType[] = [
     title: "Mwafrica Store",
     text: "E-commerce",
     animation:
-      "group-hover:text-red-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
-    style: "bg-red-500",
-    color: "group-hover:text-red-500",
+      "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
+    style: "bg-blue-500",
+    color: "group-hover:text-blue-500",
   },
   {
     icon: VanIcon,
@@ -67,9 +67,9 @@ const clients: caroucelType[] = [
     title: "Cirimoveis",
     text: "Imobiliário",
     animation:
-      "group-hover:text-yellow-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
-    style: "bg-yellow-500",
-    color: "group-hover:text-yellow-500",
+      "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
+    style: "bg-blue-500",
+    color: "group-hover:text-blue-500",
   },
 ];
 
@@ -128,7 +128,7 @@ export default function Clients() {
                     <article
                       className={`rounded-2xl p-4 h-50 flex items-center  bg-(--cards) border-2 border-white/40 hover:border-(--primary) justify-center transition-all duration-500 hover:-translate-y-4 group shadow-lg hover:shadow-zinc-500/70`}>
                       <div className="w-full flex flex-col items-center justify-center space-y-3 mx-auto">
-                        <item.icon className={`text-(--primary) ${item.animation}`} />
+                        <item.icon className={`${item.animation}`} />
 
                         <div
                           className={`w-0 group-hover:w-2/4 h-0 group-hover:h-1 rounded-full transition-all duration-400 ease-in-out ${item.style}`}></div>
