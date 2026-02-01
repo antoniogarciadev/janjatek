@@ -9,43 +9,67 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-
 import { useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import Reveal from "@/components/animations/reveal";
+import { caroucelType } from "@/types/types";
 
-import Reveal from "@/ui/reveal";
-
-const clients = [
+const clients: caroucelType[] = [
   {
-    icon: <Building />,
+    icon: Building,
     title: "Bizness Lda.",
     text: "Soluções empresariais",
+    animation:
+      "group-hover:text-red-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+    style: "bg-red-500",
+    color: "group-hover:text-red-500",
   },
   {
-    icon: <HandCoins />,
+    icon: HandCoins,
     title: "Banco Sol",
     text: "Financeira",
+    animation:
+      "group-hover:text-yellow-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
+    style: "bg-yellow-500",
+    color: "group-hover:text-yellow-500",
   },
   {
-    icon: <VanIcon />,
+    icon: VanIcon,
     title: "MOBI Express",
     text: "Gestão de Frotas",
+    animation:
+      "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
+    style: "group-hover:bg-blue-500",
+    color: "group-hover:text-blue-500",
+
   },
   {
-    icon: <Store />,
+    icon: Store,
     title: "Mwafrica Store",
     text: "E-commerce",
+    animation:
+      "group-hover:text-red-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
+    style: "bg-red-500",
+    color: "group-hover:text-red-500",
   },
   {
-    icon: <VanIcon />,
+    icon: VanIcon,
     title: "Urbanus",
     text: "Transportes",
+    animation:
+      "group-hover:text-blue-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
+    style: "bg-blue-500",
+    color: "group-hover:text-blue-500",
   },
   {
-    icon: <Home />,
+    icon: Home,
     title: "Cirimoveis",
     text: "Imobiliário",
+    animation:
+      "group-hover:text-yellow-500 group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto",
+    style: "bg-yellow-500",
+    color: "group-hover:text-yellow-500",
   },
 ];
 
@@ -65,11 +89,6 @@ export default function Clients() {
       align: "start",
       containScroll: "trimSnaps",
       slidesToScroll: 1, // sempre 1 por vez (autoplay suave)
-      breakpoints: {
-        "(min-width: 640px)": { slidesToScroll: 2 },
-        "(min-width: 780px)": { slidesToScroll: 3 },
-        "(min-width: 1024px)": { slidesToScroll: 4 },
-      },
     },
     [autoplay.current],
   );
@@ -83,15 +102,15 @@ export default function Clients() {
   }
 
   return (
-    <section className="container mx-auto h-130 py-16">
-      <div className="mx-auto px-4 space-y-10">
+    <section id="clients" className="container mx-auto py-16 pt-20 lg:pt-40 ">
+      <div className="mx-auto px-4 space-y-10 h-full lg:max-h-(--max-height)">
         <Reveal>
-          <div className="flex flex-col items-center space-y-3">
-            <h1 className="text-(--color-title) text-4xl font-semibold">
+          <div className="flex flex-col items-center space-y-3 mx-auto">
+            <h1 className="text-(--color-title) text-2xl lg:text-4xl font-semibold">
               Nossos Clientes
             </h1>
-            <p className="text-center text-[20px]">
-              Negócios que crescem conosco.
+            <p className="text-center text-sm md:text-[18px]">
+              Negócios que crescem conosco e evoluem conosco.
             </p>
           </div>
         </Reveal>
@@ -106,18 +125,21 @@ export default function Clients() {
                   <div
                     key={index}
                     className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_calc(100%/3)] lg:flex-[0_0_calc(100%/4)] h-70 px-3 content-center">
-                      <article className={`shadow-lg rounded-2xl p-6 space-y-4 h-[90%] flex items-center bg-white justify-center hover:scale-105 hover:border-2 hover:border-violet-500 group`}>
-                        <div className="w-full flex flex-col gap-3">
-                          <div className={`w-full h-28 bg-gray-200 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center gap-2 text-[11pt] group-hover:border-violet-500`}>
-                              {item.icon}
-                            <h3 className="font-bold text-lg my-1">{item.title}</h3>
-                          </div>
-                          <div className="mx-auto flex flex-col items-center">
-                            <h3 className="text-black text-xl my-1">{item.title}</h3>
-                            <p className="text-gray-400 text-sm">{item.text}</p>
-                          </div>
-                        </div>
-                      </article>
+                    <article
+                      className={`rounded-2xl p-4 h-50 flex items-center  bg-(--cards) border-2 border-white/40 hover:border-(--primary) justify-center transition-all duration-500 hover:-translate-y-4 group shadow-lg hover:shadow-zinc-500/70`}>
+                      <div className="w-full flex flex-col items-center justify-center space-y-3 mx-auto">
+                        <item.icon className={`text-(--primary) ${item.animation}`} />
+
+                        <div
+                          className={`w-0 group-hover:w-2/4 h-0 group-hover:h-1 rounded-full transition-all duration-400 ease-in-out ${item.style}`}></div>
+
+                        <h3 className="font-bold text-xl">
+                          {item.title}
+                        </h3>
+
+                        <p className={`text-sm ${item.color}`}>{item.text}</p>
+                      </div>
+                    </article>
                   </div>
                 ))}
               </div>
@@ -125,12 +147,12 @@ export default function Clients() {
             {/* BOTÕES */}
             <button
               onClick={scrollPrev}
-              className="bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute left-0 -translate-y-1/2 top-1/2 z-10">
+              className="bg-white/70 hover:bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute left-0 -translate-y-1/2 top-1/2 z-10">
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
             <button
               onClick={scrollNext}
-              className="bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute right-0 -translate-y-1/2 top-1/2 z-10">
+              className="bg-white/70 hover:bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute right-0 -translate-y-1/2 top-1/2 z-10">
               <ChevronRight className="w-6 h-6 text-gray-600" />
             </button>
           </div>
@@ -139,154 +161,3 @@ export default function Clients() {
     </section>
   );
 }
-
-
-
-
-
-// "use client";
-
-// import { useRef } from "react";
-// import useEmblaCarousel from "embla-carousel-react";
-// import Autoplay from "embla-carousel-autoplay";
-
-// import { ChevronLeft, ChevronRight, Scissors, Clock, WheatOff } from "lucide-react";
-
-// const services = [
-//   {
-//     title: "Banho & Tosa",
-//     description:
-//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
-//     duration: "1h",
-//     price: "$50",
-//     icon: <Scissors />,
-//   },
-//   {
-//     title: "Banho & Tosa",
-//     description:
-//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
-//     duration: "1h",
-//     price: "$50",
-//     icon: <Scissors />,
-//   },
-//   {
-//     title: "Banho & Tosa",
-//     description:
-//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
-//     duration: "1h",
-//     price: "$50",
-//     icon: <Scissors />,
-//   },
-//   {
-//     title: "Banho & Tosa",
-//     description:
-//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
-//     duration: "1h",
-//     price: "$50",
-//     icon: <Scissors />,
-//   },
-//   {
-//     title: "Banho & Tosa",
-//     description:
-//       "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal. corte de unhas, limpeza das orelhas e tosa personalizada.",
-//     duration: "1h",
-//     price: "$50",
-//     icon: <Scissors />,
-//   },
-//   // restantes...
-// ];
-
-// export default function Services() {
-//   // 🔥 plugin autoplay
-//   const autoplay = useRef(
-//     Autoplay({
-//       delay: 5000, // ⏱️ 5s
-//       stopOnInteraction: false, // continua após clique
-//       stopOnMouseEnter: true, // pausa no hover
-//     }),
-//   );
-
-//   const [emblaRef, emblaApi] = useEmblaCarousel(
-//     {
-//       loop: false,
-//       align: "start",
-//       containScroll: "trimSnaps",
-//       slidesToScroll: 1, // sempre 1 por vez (autoplay suave)
-//       breakpoints: {
-//         "(min-width: 640px)": { slidesToScroll: 2 },
-//         "(min-width: 1024px)": { slidesToScroll: 4 },
-//       },
-//     },
-//     [autoplay.current],
-//   );
-
-//   function scrollPrev() {
-//     emblaApi?.scrollPrev();
-//   }
-
-//   function scrollNext() {
-//     emblaApi?.scrollNext();
-//   }
-
-//   return (
-//     <section className="bg-white py-16">
-//       <div className="container mx-auto px-4">
-//         <h2 className="text-4xl font-bold mb-12">Serviços</h2>
-
-//         <div className="relative">
-//           {/* VIEWPORT */}
-//           <div className="overflow-hidden" ref={emblaRef}>
-//             {/* TRACK */}
-//             <div className="flex">
-//               {services.map((item, index) => (
-//                 <div
-//                   key={index}
-//                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_calc(100%/4)] px-3">
-//                   <article className="bg-[#1e293b] text-white rounded-2xl p-6 space-y-4 h-full flex flex-col">
-//                     <div className="flex gap-3">
-//                       <span className="text-3xl">{item.icon}</span>
-
-//                       <div>
-//                         <h3 className="font-bold text-xl my-1">{item.title}</h3>
-
-//                         <p className="text-gray-400 text-sm">
-//                           {item.description}
-//                         </p>
-//                       </div>
-//                     </div>
-
-//                     <div className="border-t border-gray-400 flex items-center justify-between pt-4">
-//                       <div className="flex items-center gap-2 text-sm">
-//                         <Clock className="w-4 h-4" />
-//                         <span>{item.duration}</span>
-//                       </div>
-
-//                       <a className="flex items-center gap-2 hover:bg-red-500 rounded-md px-3 py-1 duration-300">
-//                         <WheatOff className="w-5 h-5" />
-//                         Contato
-//                       </a>
-//                     </div>
-//                   </article>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* BOTÕES */}
-//           <button
-//             onClick={scrollPrev}
-//             className="bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute left-0 -translate-y-1/2 top-1/2 z-10">
-//             <ChevronLeft className="w-6 h-6 text-gray-600" />
-//           </button>
-
-//           <button
-//             onClick={scrollNext}
-//             className="bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute right-0 -translate-y-1/2 top-1/2 z-10">
-//             <ChevronRight className="w-6 h-6 text-gray-600" />
-//           </button>
-//         </div>
-//       </div>
-//     </section>
-
-//   );
-// }

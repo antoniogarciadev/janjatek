@@ -38,12 +38,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# next.js types e permite usar o css modules sem erros
 next-env.d.ts
 
-cardsRender.tsx
-
-headers.jsx
-
-cardCaroucel.tsx
-
-scrollCards.tsx
+#Ainda não sei se é necessário e não consigo usar o tailwind.config.js
+tailwind.config.ts

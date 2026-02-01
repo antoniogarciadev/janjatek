@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 import { LucideIcon } from "lucide-react";
 
 export interface ItemData {
@@ -6,21 +5,22 @@ export interface ItemData {
   label: string;
 }
 
-export interface card {
-  id?: number;
-  imageUrl: StaticImageData;
-  alt: string;
-  title: string;
-  text: string;
-  button?: string | false;
-}
-
-export interface Cards {
+export interface caroucelType {
   icon: LucideIcon;
   title: string;
   text: string;
-  index?: number;
-  className?: string;
+  animation?: string;
+  style?: string;
+  color?: string;
+}
+
+export interface cardsType {
+  icon: LucideIcon;
+  title: string;
+  text: string;
+  animation?: string;
+  style?: string;
+  button?: string | false;
 }
 
 export interface button {

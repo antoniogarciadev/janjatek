@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import Reveal from "@/components/animations/reveal";
+import { caroucelType } from "@/types/types";
 import {
   PenSquareIcon,
   Earth,
@@ -14,40 +16,62 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import Reveal from "@/ui/reveal";
-
 export default function Partners() {
-
-  const partners = [
+  const partners: caroucelType[] = [
     {
-      icon: <PenSquareIcon />,
+      icon: PenSquareIcon,
       title: "Ponto&Vírgula",
       text: "Estratégica",
+      animation:
+        "group-hover:text-orange-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-orange-500",
+      color: "group-hover:text-orange-500"
     },
     {
-      icon: <Earth />,
+      icon: Earth,
       title: "Mwafrica",
       text: "Expansão",
+      animation:
+        "group-hover:text-green-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-green-500",
+      color: "group-hover:text-green-500"
     },
     {
-      icon: <Settings />,
+      icon: Settings,
       title: "Control JP",
       text: "Controle",
+      animation:
+        "group-hover:text-yellow-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-yellow-500",
+      color: "group-hover:text-yellow-500"
     },
     {
-      icon: <Building2 />,
+      icon: Building2,
       title: "Gov. Namibe",
       text: "Institucional",
+      animation:
+        "group-hover:text-orange-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-orange-500",
+      color: "group-hover:text-orange-500"
     },
     {
-      icon: <Shield />,
+      icon: Shield,
       title: "HakyOFF",
       text: "Segurança",
+      animation:
+        "group-hover:text-green-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-green-500",
+      color: "group-hover:text-green-500"
     },
     {
-      icon: <BadgeDollarSign />,
+      icon: BadgeDollarSign,
       title: "Afrimoney",
       text: "Financeira",
+      animation:
+        "group-hover:text-yellow-500 group-hover:scale-140 transition-all duration-500 w-[58px]",
+      style: "bg-yellow-500",
+      color: "group-hover:text-yellow-500"
+
     },
   ];
 
@@ -65,10 +89,6 @@ export default function Partners() {
       align: "start",
       containScroll: "trimSnaps",
       slidesToScroll: 1, // sempre 1 por vez (autoplay suave)
-      breakpoints: {
-        "(min-width: 640px)": { slidesToScroll: 2 },
-        "(min-width: 1024px)": { slidesToScroll: 4 },
-      },
     },
     [autoplay.current],
   );
@@ -82,15 +102,15 @@ export default function Partners() {
   }
 
   return (
-    <section className="container h-130 py-16 mx-auto">
-      <div className="mx-auto px-4 space-y-10">
+    <section id="partners" className="container py-16 lg:pt-30 mx-auto mb-10">
+      <div className="mx-auto px-4 space-y-10 h-full lg:max-h-(--max-height)">
         <Reveal>
           <div className="flex flex-col items-center space-y-3">
-            <h1 className="text-(--color-title) text-4xl font-semibold">
-              Nossos Clientes
+            <h1 className="text-(--color-title) text-2xl lg:text-4xl font-semibold">
+              Nossos Parceiros
             </h1>
-            <p className="text-center text-[20px]">
-              Negócios que crescem conosco.
+            <p className="text-center text-sm md:text-[18px]">
+              Alianças para inovação contínua.
             </p>
           </div>
         </Reveal>
@@ -105,18 +125,19 @@ export default function Partners() {
                   <div
                     key={index}
                     className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_calc(100%/3)] lg:flex-[0_0_calc(100%/4)] h-70 px-3 content-center ">
-                    <article className="shadow-lg rounded-2xl p-6 space-y-4 h-[90%] flex items-center bg-white justify-center  hover:scale-105 hover:border-2 hover:border-violet-500 group">
-                      <div className="w-full flex flex-col gap-3">
-                        <div className="w-full h-28 bg-gray-200 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center gap-2 text-[11pt] group-hover:border-violet-500">
-                          {item.icon}
-                          <h3 className="font-bold text-lg my-1">{item.title}</h3>
-                        </div>
-                        <div className="mx-auto flex flex-col items-center">
-                          <h3 className="text-black text-xl my-1">
-                            {item.title}
-                          </h3>
-                          <p className="text-gray-400 text-sm">{item.text}</p>
-                        </div>
+                    <article
+                      className={`rounded-2xl p-4 h-50 flex items-center text-white bg-(--cards) border-2 border-white/40 hover:border-(--primary) justify-center transition-all duration-500 hover:-translate-y-4 group shadow-lg hover:shadow-zinc-500/70`}>
+                      <div className="w-full flex flex-col items-center justify-center space-y-3 mx-auto">
+                        <item.icon className={`text-(--primary) ${item.animation}`} />
+
+                        <div
+                          className={`w-0 group-hover:w-2/4 h-0 group-hover:h-1 rounded-full transition-all duration-400 ease-in-out ${item.style}`}></div>
+
+                        <h3 className="font-bold text-xl">
+                          {item.title}
+                        </h3>
+
+                        <p className={`text-sm ${item.color}`}>{item.text}</p>
                       </div>
                     </article>
                   </div>

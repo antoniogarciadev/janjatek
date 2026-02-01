@@ -5,19 +5,17 @@ html {
 }
 
 :root {
-  --background: #ffffff;
-  --test: #f6fcff;
-  --foreground: #171717;
   --max-height: 800px;
 }
 
 @layer components {
   .navbar-links {
-    @apply flex items-center justify-center px-3 py-1 rounded-sm hover:scale-105 hover:text-violet-500 hover:bg-[#f6fcff] transition-all duration-300;
+    @apply relative flex items-center justify-center text-white hover:text-blue-500 px-3 transition-all duration-500
+    after:content-[""] after:absolute after:top-5 after:left-0 after:w-0 hover:after:w-full after:transition-all after:duration-500 after:bg-blue-500 after:h-0.5 after:rounded-lg;
   }
 
-  .social-icon {
-    @apply bg-white w-11 h-11 rounded-full border border-(--color-blue) flex items-center justify-center transition-all duration-100 hover:bg-(--color-blue);
+  .footer-icons {
+    @apply text-white w-11 h-11 rounded-full flex items-center justify-center transition-all duration-100 hover:bg-blue-500;
   }
 
   .icon-hover {
@@ -25,154 +23,171 @@ html {
   }
 
   .footer-links {
-    @apply text-(--color-blue) hover:text-(--color-blue)/80 decoration-1 underline;
+    @apply text-white hover:text-blue-500 transition-all duration-500;
   }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer utilities {
+  /* Animações*/
+
+  /* Animação Inicial */
+  .ani-appear {
+    visibility: hidden;
+    animation: appear linear 4.5s;
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    25% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    75% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+      transition: 1s;
+      opacity: 0;
+    }
+  }
+
+  .ani-intro {
+    opacity: 0;
+    animation: intro linear 4s;
+  }
+
+  @keyframes intro {
+    0% {
+      visibility: visible;
+      transform: translateX(0);
+    }
+    25% {
+      visibility: visible;
+
+      opacity: 1;
+      transform: translateX(0);
+    }
+    50% {
+      visibility: visible;
+
+      opacity: 1;
+      transform: translateX(0);
+    }
+    75% {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%);
+    }
+    100% {
+      visibility: visible;
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+  /* Animação Inicial */
+
+  /* Animação da logo */
+  .ani-floating {
+    animation: floating 3s infinite ease-in-out;
+  }
+
+  @keyframes floating {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+ /* Animação da logo small */
+  .ani-floating-small {
+    animation: floating-small 3s infinite ease-in-out;
+  }
+
+  @keyframes floating-small {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  /* Animação dos icones dos cards cards*/
+  .ani-call {
+    animation: call 1s linear infinite;
+  }
+
+  @keyframes call {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(15deg);
+    }
+    75% {
+      transform: rotate(-30deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .ani-grow {
+    animation: grow 3s infinite ease-in-out;
+  }
+
+  @keyframes grow {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.2) rotate(-40deg);
+    }
+    70% {
+      transform: scale(1.2) rotate(-40deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  /* Animação dos icones dos cards cards*/
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #f3f4f6;
-    /* --foreground: #ededed; */
-    --color-text: #4b5563;
-    --color-purple: #6366f1;
-    --color-purple-2: #8a2be2;
-    --color-blue-cyan: #2999df;
-    --color-blue: #0d6efd;
-    --color-title: #000000;
-  }
+@theme {
+  --primary:  oklch(62.3% 0.214 259.815);
+  --primary-hover: #155dfc;
+  --secondary: #1c398e;
+  --header-footer: #0e111b;
+  --body: #1b2136;
+  --card: #151a2a;
+  --cards: #151a2a;
+  --title: white;
+  --text: white;
+  --text-light: #ffffff;
+  --text-gray: #4b5563;
+  --azul-black-origial: #111827;
 }
 
 body {
-  background: var(--background);
-  color: var(--color-text);
+  background-color: var(--body);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-
-.ani-move-up {
-  animation: floating 5s infinite linear ;
-}
-
-@keyframes floating {
-  0% {
-    transform: translateY(10px);
-  }
-  50% {
-    transform: translateY(-30px);
-  }
-  100% {
-    transform: translateY(10px);
-  }
-}
-
-.ani-scale {
-  animation: scale 3s infinite linear;
-}
-
-@keyframes scale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.ani-move-around {
-  animation: move-around 3s infinite linear;
-}
-
-@keyframes move-around {
-  0% {
-    transform: translateX(10px);
-  }
-  50% {
-    transform: translateX(-10px);
-  }
-  100% {
-    transform: translateX(10px);
-  }
-}
-
-.ani-appear {
-  visibility: hidden;
-  animation: appear linear 4.5s;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  25% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  75% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(100%);
-    transition: 1s;
-    opacity: 0;
-  }
-}
-
-.ani-intro {
-  opacity: 0;
-  animation: intro linear 4s;
-}
-
-@keyframes intro {
-  /* from {
-    transform: translateX(0);
-    opacity:1;
-  }
- 
-  to {
-    transform: translateX(-100%);
-    opacity: 0;
-  } */
-  0% {
-    visibility: visible;
-    transform: translateX(0);
-  }
-  25% {
-    visibility: visible;
-
-    opacity: 1;
-    transform: translateX(0);
-  }
-  50% {
-    visibility: visible;
-
-    opacity: 1;
-    transform: translateX(0);
-  }
-  75% {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-50%);
-  }
-  100% {
-    visibility: visible;
-    transform: translateX(-100%);
-    opacity: 0;
-  }
 }

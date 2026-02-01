@@ -1,147 +1,113 @@
-// Imports das imagens
-import Mensage from "@/assets/icons/mensage-icon.png";
-import Calendar from "@/assets/icons/calendar-icon.png";
-import Security from "@/assets/icons/security-icon.png";
-import PhoneCalling from "@/assets/icons/phone-calling-icon.png";
-// Import de componete
-import Card from "@/ui/card";
-import Reveal from "@/ui/reveal";
-// Tipo de dados dos meus cards
-import { card } from "@/types/types";
+"use client";
+import Button from "@/ui/button";
+import Reveal from "@/components/animations/reveal";
+import { cardsType } from "@/types/types";
+import { useState } from "react";
+import {
+  RotateCcwKey,
+  MessagesSquareIcon,
+  PieChart,
+  LucidePhoneCall,
+} from "lucide-react";
 
 export default function Products() {
-  // Informações dos meus cards
-  const cards: card[] = [
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+
+  const products: cardsType[] = [
     {
-      id: 1,
-      imageUrl: Mensage,
-      alt: "Icone de foguete",
+      icon: MessagesSquareIcon,
       title: "NoHere",
       text: "Comunicação segura e inteligente para empresas.",
+      animation: "group-hover:text-violet-500",
+      button: "Saber Mais",
     },
     {
-      id: 2,
-      imageUrl: Calendar,
-      alt: "Icone de Escudo",
+      icon: PieChart,
       title: "PRESEU",
       text: "Revoluciona as operações das empresas, transformando dados em decisões inteligentes e instantâneas.",
+      animation: "group-hover:text-green-500 ",
+      button: "Saber Mais",
     },
     {
-      id: 3,
-      imageUrl: Security,
-      alt: "Icone de robo",
+      icon: RotateCcwKey,
       title: "EXPRENTE",
       text: "Firewalls e proteção digital para setores críticos.",
+      animation:
+        "group-hover:text-yellow-500",
+      button: "Saber Mais",
     },
     {
-      id: 4,
-      imageUrl: PhoneCalling,
-      alt: "Imagem de circulo carregando",
+      icon: LucidePhoneCall,
       title: "Tualinha",
       text: "Conectividade avançada para instituições.",
+      animation: "group-hover:text-blue-500",
+      button: "Saber Mais",
     },
   ];
 
   return (
-    <section id="products">
-      <div className="container h-full lg:max-h-(--max-height) mx-auto flex items-center justify-center lg:pt-10 flex-col gap-6 py-20">
+    <section id="products" className="">
+      <div className="container h-full lg:max-h-(--max-height) mx-auto flex items-center justify-center space-y-8 lg:space-y-20 pt-20 lg:pt-30 flex-col gap-2">
+        
         <Reveal>
-          <div className="w-80 lg:w-138 flex flex-col items-center space-y-3">
-            <h1 className="text-(--color-title) text-2xl lg:text-4xl font-semibold">
-              Produtso Inovadors
+          <div className="w-4/5 lg:w-138 flex flex-col items-center space-y-3 mx-auto">
+            <h1 className="text-(--color-title) text-2xl lg:text-4xl font-semibold text-center">
+              Produtos Inovadores
             </h1>
-            <p className="text-center  lg:text-[20px]">
+
+            <p className="text-center text-sm  md:text-[18px]">
               Plataformas que impulsionam negócios com segurança e automação.
             </p>
           </div>
         </Reveal>
 
         <Reveal>
-          <div className="w-[90%] h-full lg:h-[60%] mx-auto py-10 grid grid-cols-1 place-items-center sm:grid-cols-2 lg:flex lg:flex-row lg:items-center lg:justify-around gap-6">
-            {cards.map((card) => (
-              <Card
-                imageUrl={card.imageUrl}
-                alt={card.alt}
-                key={card.id}
-                title={card.title}
-                text={card.text}
-                button={"Siba Mais"}
-              />
-            ))}
+          <div className="text-(--text-light) w-[90%] h-full mx-auto grid grid-cols-1 place-items-center sm:grid-cols-2 lg:flex lg:flex-row lg:items-center lg:justify-around gap-6">
+            {products.map((item, index) => {
+              const isActive0 = hoverIndex === 0 && index === 0;
+              const isActive1 = hoverIndex === 1 && index === 1;
+              const isActive2 = hoverIndex === 2 && index === 2;
+              const isActive3 = hoverIndex === 3 && index === 3;
+              return (
+                <div
+                  className={`group w-full sm:w-full lg:w-full h-60 sm:h-70 min-[669px]:h-70 flex flex-col items-center justify-center bg-(--card) border-2 border-white/40 hover:border-(--primary) px-6 lg:px-4 py-6 lg:py-2 space-y-2 rounded-2xl hover:scale-103 lg:hover:scale-105 transition-all duration-500 shadow-lg hover:shadow-zinc-500/70`}
+                  key={index}
+                  onMouseEnter={() => {
+                    setHoverIndex(index);
+                  }}
+                  onMouseLeave={() => {
+                    setHoverIndex(null);
+                  }}>
+                  <item.icon
+                    className={`text-(--primary) group-hover:scale-140 transition-all duration-500 w-[58px] mx-auto group-hover:animate-call 
+                    ${item.animation}
+                    ${isActive0 && "group-hover:animate-bounce"}
+                    ${isActive1 && "ani-grow"}
+                    ${isActive2 && "group-hover:-rotate-360"}
+                    ${isActive3 && "ani-call"}
+                    `}
+                  />
+
+                  <h1 className="text-2xl lg:text-[15pt] font-medium text-center">
+                    {item.title}
+                  </h1>
+
+                  <p className="text-sm md:text-[11pt] text-center">
+                    {item.text}
+                  </p>
+
+                  {item.button && (
+                    <Button
+                      label={item.button}
+                      style="bg-(--primary) hover:bg-(--primary-hover) flex-end lg:h-10 -mb-5"
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </Reveal>
       </div>
     </section>
   );
 }
-
-// // Imports das imagens
-// import Mensage from "@/assets/icons/mensage-icon.png";
-// import Calendar from "@/assets/icons/calendar-icon.png";
-// import Security from "@/assets/icons/security-icon.png";
-// import PhoneCalling from "@/assets/icons/phone-calling-icon.png";
-// // Import de componete
-// import Card from "@/ui/card";
-// // Tipo de dados dos meus cards
-// import { card } from '@/types/types';
-
-// export default function Products() {
-
-//   // Informações dos meus cards
-//   const cards: card[] = [
-//     {
-//       id: 1,
-//       imageUrl: Mensage,
-//       alt: "Icone de foguete",
-//       title: "NoHere",
-//       text: "Comunicação segura e inteligente para empresas.",
-//     },
-//     {
-//       id: 2,
-//       imageUrl: Calendar,
-//       alt: "Icone de Escudo",
-//       title: "PRESEU",
-//       text: "Revoluciona as operações das empresas, transformando dados em decisões inteligentes e instantâneas.",
-//     },
-//     {
-//       id: 3,
-//       imageUrl: Security,
-//       alt: "Icone de robo",
-//       title: "EXPRENTE",
-//       text: "Firewalls e proteção digital para setores críticos.",
-//     },
-//     {
-//       id: 4,
-//       imageUrl: PhoneCalling,
-//       alt: "Imagem de circulo carregando",
-//       title: "Tualinha",
-//       text: "Conectividade avançada para instituições.",
-//     },
-//   ];
-
-//   return (
-//     <section className="w-full h-screen max-h-(--max-height)">
-//       <div className="mx-auto flex flex-col gap-8 items-center justify-center  w-[85%] max-w-[1366px] h-full">
-//         <div className="w-138 flex flex-col items-center space-y-3">
-//           <h1 className="text-(--color-title) text-4xl font-semibold">Produtso Inovadors</h1>
-//           <p className="text-center text-[20px]">
-//             Plataformas que impulsionam negócios com segurança e automação.
-//           </p>
-//         </div>
-
-//         <div className=" h-[60%] py-10 flex items-center justify-around gap-6 transition-all duration-500 ease-in-out">
-//           {cards.map((card) => (
-//             <Card
-//               imageUrl={card.imageUrl}
-//               alt={card.alt}
-//               key={card.id}
-//               title={card.title}
-//               text={card.text}
-//               button={"Siba Mais"}
-//             />
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }

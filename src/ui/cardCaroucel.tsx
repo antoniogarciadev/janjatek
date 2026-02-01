@@ -1,7 +1,7 @@
 "use client";
 
-import { Cards } from "@/types/types";
-export default function CardCaroucel({ icon, title, text }: Cards) {
+import { caroucelType } from "@/types/types";
+export default function CardCaroucel({ icon, title, text }: caroucelType) {
   const Icon = icon;
 
   return (
