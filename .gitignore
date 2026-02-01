@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 
 # next.js types e permite usar o css modules sem erros
-next-env.d.ts
+# next-env.d.ts
 
 #Ainda não sei se é necessário e não consigo usar o tailwind.config.js
 tailwind.config.ts
